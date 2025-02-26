@@ -31,12 +31,11 @@ const CountryCard = ({name, flagImg, flagAltText}) => {
 function Countries() {
   const API_URL = "https://xcountries-backend.azurewebsites.net/all";
   const [countries, setCountries] = useState([]);
-  console.log(countries);
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setCountries(data))
-      .catch((error) => console.log("Error: " + error));
+      .catch((error) => console.error("Error: " + error));
   }, []);
   return (
     <div
